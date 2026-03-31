@@ -103,13 +103,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .hook-promise{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:13px 22px;color:#fff;font-size:.9rem;font-weight:600;margin-bottom:32px}
 
 /* STORY */
-.story{background:var(--sky);padding:80px 5vw}
-.story-inner{max-width:800px;margin:0 auto}
-.story-header{text-align:center;margin-bottom:36px}
-.story-body{font-size:1.02rem;line-height:1.85;color:var(--text-soft)}
-.story-body p{margin-bottom:18px}
-.story-highlight{background:#fff;border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:18px 22px;margin:22px 0;font-style:italic;color:var(--blue-deep);font-size:1.05rem;font-weight:500}
-.story-body strong{color:var(--blue-deep);font-weight:700}
+.story{background:var(--sky);padding:90px 5vw}
+.story-inner{max-width:1000px;margin:0 auto}
+.story-header{text-align:center;margin-bottom:44px}
+.story-lead{font-size:1.05rem;line-height:1.85;color:var(--text-soft);max-width:780px;margin:0 auto 32px}
+.story-lead p{margin-bottom:18px}
+.story-lead strong{color:var(--blue-deep);font-weight:700}
+.story-highlight{background:#fff;border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:18px 22px;font-style:italic;color:var(--blue-deep);font-size:1.05rem;font-weight:500;max-width:780px;margin:0 auto 32px;display:block}
+.story-mission{background:linear-gradient(135deg,var(--blue-deep),#0a3d6b);border-radius:20px;padding:32px 36px;color:#fff;max-width:780px;margin:0 auto 40px;text-align:center}
+.story-mission p{font-size:1.02rem;line-height:1.75;color:rgba(255,255,255,.78)}
+.story-mission strong{color:var(--gold-light)}
+.experts-title{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--blue-deep);margin-bottom:24px}
+.experts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:900px;margin:0 auto 32px}
+.expert-card{background:#fff;border:1px solid var(--border-light);border-radius:18px;padding:26px 24px;transition:all .3s;position:relative;overflow:hidden}
+.expert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.expert-card:hover::before{transform:scaleX(1)}
+.expert-card:hover{box-shadow:0 8px 32px rgba(33,150,211,.1);transform:translateY(-3px)}
+.expert-icon{font-size:2rem;margin-bottom:14px}
+.expert-card h4{font-size:.95rem;font-weight:700;color:var(--blue-deep);margin-bottom:10px}
+.expert-card p{font-size:.86rem;line-height:1.7;color:var(--text-soft)}
+.expert-card p strong{color:var(--blue-deep);font-weight:700}
+.story-closing{text-align:center;font-size:1rem;line-height:1.8;color:var(--text-soft);max-width:680px;margin:0 auto}
+@media(max-width:640px){.experts-grid{grid-template-columns:1fr}}
 
 /* HOW */
 .how{background:#fff;padding:90px 5vw}
@@ -297,14 +312,36 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
   .products-grid{grid-template-columns:1fr}
   .install-cards{grid-template-columns:1fr}
   .install-card.featured{transform:none}
+  .experts-grid{grid-template-columns:1fr}
+  /* NAV MOBILE — ukryj linki, zmniejsz przycisk */
   .nav-links{display:none}
-  .hero-visual{max-width:440px;margin:0 auto}
+  .nav-cta{padding:7px 14px;font-size:.8rem}
+  /* HERO MOBILE — grafika na górze, tekst na dole */
+  .hero-inner{display:flex;flex-direction:column}
+  .hero-visual{order:-1;max-width:340px;margin:0 auto}
+  .stat-float-1{top:4%;right:0}
+  .stat-float-2{bottom:4%;left:0}
+  .hero{padding:88px 5vw 0}
 }
 @media(max-width:600px){
   .steps{grid-template-columns:1fr}
   .cta-form,.ec-form{flex-direction:column;align-items:stretch}
   .hero-actions{flex-direction:column}
   .trust-sep{display:none}
+  /* NAV bardzo mała — logo + minimalny przycisk */
+  nav{padding:0 4vw;height:60px}
+  .nav-logo-img{height:36px}
+  .nav-cta{padding:7px 12px;font-size:.76rem;border-radius:50px}
+  /* HERO tekst na małych */
+  .hero-title{font-size:clamp(2.2rem,10vw,3.2rem)}
+  .hero-sub{font-size:.95rem}
+  .stat-float{padding:10px 13px;gap:8px}
+  .sf-val{font-size:1.1rem}
+  .sf-icon{font-size:1.4rem}
+  .sf-label{font-size:.65rem}
+  /* Hook i email */
+  .hook-promise{flex-direction:column;text-align:center}
+  .trust-bar{gap:14px 24px;font-size:.78rem}
 }
 </style>
 </head>
@@ -429,14 +466,47 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
 <!-- STORY -->
 <section class="story">
   <div class="story-inner">
-    <div class="story-header reveal"><div class="section-label">Nasza historia</div><h2 class="section-title">Skąd się wzięła MojaRetencja.pl?</h2></div>
-    <div class="story-body reveal">
-      <p>Kilka lat temu mój ogród wyglądał jak pustynia w środku lata. Płaciłam krocie za wodę z kranu do podlewania, a po każdej ulewie i tak wszystko spływało prosto do kanalizacji. <strong>Tysiące litrów darmowej wody uciekało mi spod nosa</strong>, a ja i tak płaciłam za wodociągową.</p>
-      <div class="story-highlight">"Chwila — deszcz pada za darmo, a ja płacę za wodę do podlewania? Coś tu zupełnie nie gra."</div>
-      <p>Zamontowałam pierwszy zbiornik. Efekt? <strong>Rachunki za wodę spadły o ponad 400 zł rocznie.</strong> Ogród wyglądał lepiej niż kiedykolwiek, bo deszczówka jest miękka i bez chloru.</p>
-      <p>Kiedy usłyszałam o programie Mikroretencja i dotacji do 8 000 zł, pomyślałam: <strong>każdy właściciel domu jednorodzinnego w Polsce powinien o tym wiedzieć.</strong> I tak powstała MojaRetencja.pl.</p>
-      <p>Dziś pomagamy właścicielom domów zamontować system, złożyć wniosek i odzyskać do 8 000 zł. <strong>Ty tylko otwierasz drzwi i cieszysz się darmową wodą deszczową.</strong></p>
+    <div class="story-header reveal">
+      <div class="section-label">Kim jesteśmy</div>
+      <h2 class="section-title">Skąd się wzięła MojaRetencja.pl?</h2>
     </div>
+
+    <div class="story-lead reveal">
+      <p>Większość firm na rynku oferuje klientom tylko jeden element układanki: albo montują zbiorniki, albo zajmują się papierologią. My zauważyliśmy, że polscy właściciele domów potrzebują <strong>partnera, który zdejmie z ich barków cały ciężar inwestycji</strong>. Właśnie dlatego powstała MojaRetencja.pl.</p>
+      <p>Nie jesteśmy przypadkową firmą. MojaRetencja to <strong>sojusz ekspertów specjalizujących się w czterech kluczowych dziedzinach</strong>: instalacjach sanitarnych, pozyskiwaniu dofinansowań z NFOŚiGW, finansowaniu ratalnym inwestycji ekologicznych oraz doradztwie energetycznym.</p>
+    </div>
+
+    <div class="story-highlight reveal">"Połączyliśmy siły z jedną, jasną wizją: chcemy zrewolucjonizować rynek mikroretencji w Polsce, dostarczając usługę, jakiej nie ma nikt inny."</div>
+
+    <div class="experts-title reveal">Nasz zespół ekspertów</div>
+    <div class="experts-grid">
+      <div class="expert-card reveal reveal-delay-1">
+        <div class="expert-icon">🔧</div>
+        <h4>Eksperci od instalacji sanitarnych</h4>
+        <p>Dbają o to, by każdy drenaż, skrzynka rozsączająca i zbiornik na deszczówkę — naziemny czy podziemny — był zamontowany <strong>bezbłędnie i służył przez lata</strong>.</p>
+      </div>
+      <div class="expert-card reveal reveal-delay-2">
+        <div class="expert-icon">📋</div>
+        <h4>Specjaliści od dotacji NFOŚiGW</h4>
+        <p>Znają wymagania programów na wylot. Biorą na siebie <strong>cały proces wnioskowania</strong> w ramach FEnIKS 2021–2027, dbając o to, byś otrzymał maksymalnie <strong>8 000 zł bezzwrotnej dotacji</strong> pokrywającej 90% kosztów.</p>
+      </div>
+      <div class="expert-card reveal reveal-delay-3">
+        <div class="expert-icon">💳</div>
+        <h4>Doradcy ds. finansowania</h4>
+        <p>Wiedzą, że inwestycje ekologiczne nie powinny obciążać domowego budżetu. Dlatego wprowadzili możliwość rozłożenia <strong>10% wkładu własnego na elastyczne raty bez prowizji</strong> — na 12, 24 lub 36 miesięcy.</p>
+      </div>
+      <div class="expert-card reveal reveal-delay-4">
+        <div class="expert-icon">🌿</div>
+        <h4>Eksperci od doradztwa energetycznego</h4>
+        <p>Patrzą na Twój dom holistycznie, pomagając stworzyć nieruchomość nowoczesną i oszczędną — <strong>rachunki za wodę niższe nawet o 400–900 zł rocznie</strong> i przyjazną środowisku.</p>
+      </div>
+    </div>
+
+    <div class="story-mission reveal">
+      <p>Nasza misja jest prosta: chcemy, by każdy właściciel domu jednorodzinnego w Polsce mógł korzystać z <strong>darmowej wody z nieba</strong>, nie martwiąc się o formalności i wysokie koszty startowe. Tysiące litrów miękkiej deszczówki nie powinno rok po roku uciekać do kanalizacji.</p>
+    </div>
+
+    <p class="story-closing reveal">Zajmujemy się <strong>wszystkim</strong> — od bezpłatnej konsultacji i doboru instalacji, przez szybki montaż, aż po moment gdy <strong>dotacja trafia na Twoje konto</strong>. Ty tylko podejmujesz decyzję, a nasz zespół dba o całą resztę.</p>
   </div>
 </section>
 
@@ -618,7 +688,7 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
     <button class="btn-red" onclick="handleSubmit()">📞 Oddzwoń do mnie →</button>
   </div>
   <div class="success-msg" id="successMsg">✅ Dziękujemy! Oddzwonimy w ciągu 24 godzin.</div>
-  <p class="cta-note reveal" style="margin-top:13px">Lub napisz: <strong style="color:var(--blue-mid)">kontakt@mojaretencja.pl</strong> · Dane chronione zgodnie z RODO</p>
+  <p class="cta-note reveal" style="margin-top:13px">Lub napisz: <strong style="color:var(--blue-mid)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94fffbfae0f5ffe0d4f9fbfef5e6f1e0f1faf7fef5bae4f8">[email&#160;protected]</a></strong> · Dane chronione zgodnie z RODO</p>
 </section>
 
 <!-- EMAIL CAPTURE -->
@@ -657,7 +727,7 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
       <div><div class="footer-logo">Moja<span>Retencja</span>.pl</div><p class="footer-desc">Montaż systemów mikroretencji z pełną pomocą w uzyskaniu dofinansowania do 8 000 zł z programu NFOŚiGW / FEnIKS.</p></div>
       <div class="footer-col"><h4>Oferta</h4><a href="#instalacje">Zbiorniki naziemne</a><a href="#instalacje">Drenaż i rozsącze</a><a href="#instalacje">Pompy i dystrybucja</a><a href="#raty">Finansowanie na raty</a></div>
       <div class="footer-col"><h4>Program</h4><a href="#dofinansowanie">Dotacja 8 000 zł</a><a href="#jak-dziala">Jak to działa</a><a href="#faq">FAQ</a><a href="https://www.gov.pl/web/nfosigw" target="_blank" rel="noopener">NFOŚiGW ↗</a></div>
-      <div class="footer-col"><h4>Kontakt</h4><a href="mailto:kontakt@mojaretencja.pl">kontakt@mojaretencja.pl</a><a href="#kontakt">Formularz kontaktowy</a></div>
+      <div class="footer-col"><h4>Kontakt</h4><a href="/cdn-cgi/l/email-protection#23484c4d57424857634e4c4942514657464d4049420d534f"><span class="__cf_email__" data-cfemail="eb8084859f8a809fab8684818a998e9f8e8588818ac59b87">[email&#160;protected]</span></a><a href="#kontakt">Formularz kontaktowy</a></div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 MojaRetencja.pl · Wszelkie prawa zastrzeżone</p>
@@ -666,7 +736,7 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleFaq(el) {
   const item = el.closest('.faq-item');
   const wasOpen = item.classList.contains('open');
@@ -701,11 +771,12 @@ const chartObs = new IntersectionObserver(entries => {
         setTimeout(() => bar.classList.add('animated'), 80);
       });
       e.target.querySelectorAll('.donut-fill').forEach(c => setTimeout(() => c.classList.add('animated'), 200));
-      chartObs.unobserve(e.target);
+         chartObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.35 });
 document.querySelectorAll('.chart-card, .donut-card').forEach(el => chartObs.observe(el));
+
 window.addEventListener('scroll', () => {
   document.querySelector('nav').style.boxShadow = window.scrollY > 40
     ? '0 4px 30px rgba(14,77,123,.1)' : '0 2px 16px rgba(33,150,211,.07)';
