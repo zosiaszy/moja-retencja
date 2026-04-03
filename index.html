@@ -35,6 +35,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .nav-links{display:flex;gap:26px;align-items:center}
 .nav-links a{color:var(--text-soft);font-size:.87rem;font-weight:500;text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--blue)}
+.nav-kalk{background:linear-gradient(135deg,var(--teal),#0a8a7a);color:#fff!important;padding:8px 16px;border-radius:50px;font-weight:700!important;font-size:.84rem!important;transition:all .2s;box-shadow:0 3px 10px rgba(15,168,149,.3)}
+.nav-kalk:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(15,168,149,.45);color:#fff!important}
 .nav-cta{background:var(--red);color:#fff;padding:9px 20px;border-radius:50px;font-size:.87rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(224,32,32,.28)}
 .nav-cta:hover{background:var(--red-dark);transform:translateY(-2px)}
 
@@ -355,6 +357,7 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
     <a href="#dofinansowanie">Dofinansowanie</a>
     <a href="#raty">Raty</a>
     <a href="#faq">FAQ</a>
+    <a href="kalkulator.html" class="nav-kalk">💧 Oblicz oszczędności</a>
   </div>
   <a href="#kontakt" class="nav-cta">📞 Bezpłatna konsultacja</a>
 </nav>
@@ -519,6 +522,29 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
       <div class="step reveal reveal-delay-2"><div class="step-num">2</div><h3>Montaż instalacji</h3><p>Montujemy zbiorniki, drenaż lub skrzynki rozsączające — szybko i z pełną dokumentacją powykonawczą.</p></div>
       <div class="step reveal reveal-delay-3"><div class="step-num">3</div><h3>Wniosek o dotację</h3><p>Gdy ruszy nabór w WFOŚiGW, składamy wniosek razem z Tobą. Znamy wymagania programu na wylot.</p></div>
       <div class="step reveal reveal-delay-4"><div class="step-num">4</div><h3>8 000 zł na konto</h3><p>Dotacja trafia na Twoje konto. Ewentualny wkład własny płacisz w wygodnych ratach, bez stresu.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CALCULATOR CTA -->
+<section style="background:#fff;padding:0 5vw 0;margin-bottom:0">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="background:linear-gradient(135deg,var(--blue-deep) 0%,#0a3d6b 100%);border-radius:24px;padding:48px 44px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;overflow:hidden;margin-bottom:0">
+      <div style="position:absolute;top:-40%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(33,150,211,.2) 0%,transparent 65%);pointer-events:none"></div>
+      <div style="position:relative">
+        <div style="display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:14px">🔢 Bezpłatne narzędzie</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2">Ile wody zbiera Twój dach?<br><span style="color:var(--gold-light)">Oblicz i sprawdź swoje dofinansowanie.</span></h2>
+        <p style="font-size:.93rem;color:rgba(255,255,255,.65);line-height:1.7;max-width:520px">Wpisz powierzchnię dachu i strefę opadową — kalkulator dobierze idealny zbiornik i wyliczy ile możesz oszczędzić oraz jaką dotację otrzymasz z programu NFOŚiGW.</p>
+      </div>
+      <div style="position:relative;text-align:center;flex-shrink:0">
+        <a href="kalkulator.html" style="display:inline-flex;flex-direction:column;align-items:center;gap:6px;background:linear-gradient(135deg,#e8a020,#c07010);color:#fff;padding:20px 32px;border-radius:16px;text-decoration:none;font-family:inherit;font-weight:700;font-size:1rem;box-shadow:0 8px 24px rgba(232,160,32,.4);transition:all .25s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(232,160,32,.5)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 24px rgba(232,160,32,.4)'">
+          <span style="font-size:2rem">🧮</span>
+          <span>Uruchom kalkulator</span>
+          <span style="font-size:.76rem;font-weight:400;opacity:.85">Bezpłatnie · bez rejestracji</span>
+        </a>
+        <div style="margin-top:12px;font-size:.74rem;color:rgba(255,255,255,.45)">Już skorzystało 200+ właścicieli domów</div>
+      </div>
     </div>
   </div>
 </section>
@@ -726,7 +752,7 @@ footer{background:var(--blue-deep);color:rgba(255,255,255,.5);padding:54px 5vw 2
     <div class="footer-top">
       <div><div class="footer-logo">Moja<span>Retencja</span>.pl</div><p class="footer-desc">Montaż systemów mikroretencji z pełną pomocą w uzyskaniu dofinansowania do 8 000 zł z programu NFOŚiGW / FEnIKS.</p></div>
       <div class="footer-col"><h4>Oferta</h4><a href="#instalacje">Zbiorniki naziemne</a><a href="#instalacje">Drenaż i rozsącze</a><a href="#instalacje">Pompy i dystrybucja</a><a href="#raty">Finansowanie na raty</a></div>
-      <div class="footer-col"><h4>Program</h4><a href="#dofinansowanie">Dotacja 8 000 zł</a><a href="#jak-dziala">Jak to działa</a><a href="#faq">FAQ</a><a href="https://www.gov.pl/web/nfosigw" target="_blank" rel="noopener">NFOŚiGW ↗</a></div>
+      <div class="footer-col"><h4>Program</h4><a href="#dofinansowanie">Dotacja 8 000 zł</a><a href="#jak-dziala">Jak to działa</a><a href="kalkulator.html">Kalkulator zbiornika</a><a href="#faq">FAQ</a><a href="https://www.gov.pl/web/nfosigw" target="_blank" rel="noopener">NFOŚiGW ↗</a></div>
       <div class="footer-col"><h4>Kontakt</h4><a href="/cdn-cgi/l/email-protection#23484c4d57424857634e4c4942514657464d4049420d534f"><span class="__cf_email__" data-cfemail="eb8084859f8a809fab8684818a998e9f8e8588818ac59b87">[email&#160;protected]</span></a><a href="#kontakt">Formularz kontaktowy</a></div>
     </div>
     <div class="footer-bottom">
@@ -782,5 +808,6 @@ window.addEventListener('scroll', () => {
     ? '0 4px 30px rgba(14,77,123,.1)' : '0 2px 16px rgba(33,150,211,.07)';
 });
 </script>
+
 </body>
 </html>
