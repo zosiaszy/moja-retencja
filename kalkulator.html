@@ -449,9 +449,20 @@ function submitLead() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   // Opcjonalnie: wyślij dane do backendu / Google Sheets / Zapier
-  // fetch('https://twoj-webhook.pl/leads', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(leadData) });
+  fetch('https://hook.eu1.make.com/29epv7y923aag3ce8v7orb6cegglt348', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      data: new Date().toLocaleString('pl-PL'),
+      imie: leadData.name,
+      telefon: leadData.phone,
+      email: leadData.email,
+      miejscowosc: leadData.city,
+      zrodlo: 'Kalkulator mojaretencja.pl'
+    })
+  }).catch(err => console.log('Webhook error:', err));
 
-  console.log('Lead:', leadData); // do podpięcia webhooka
+  console.log('Lead sent to Make:', leadData);
 }
 
 // ── KALKULATOR ─────────────────────────────────────
